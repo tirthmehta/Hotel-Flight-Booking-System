@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Expedia
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Tirthmehta
+Implementation-Vendor-Id: com.mehta.tirth
+Build-Jdk: 1.8.0_112
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/Expedia
+Created-By: Maven Integration for Eclipse
+
