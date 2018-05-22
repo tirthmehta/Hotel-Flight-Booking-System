@@ -16,17 +16,30 @@ public class Hotel {
 	private String name;
 	@Column
 	private String description;
+	@Column
+	private int capacity;
 	
+	public int getCapacity() {
+		return capacity;
+	}
+
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+
 	protected Hotel() {
 		
 	}
 	
 	
-	public Hotel(String id, String name, String description) {
+	public Hotel(String id, String name, String description,int capacity) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.capacity=capacity;
 	}
 
 

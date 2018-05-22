@@ -18,14 +18,25 @@ public class Booking {
 	private String description;
 	@Column
 	private String flightid;
+	@Column
+	private String hotelid;
 	
 	
-	public Booking(String id, String name, String description, String flightid) {
+	public String getHotelid() {
+		return hotelid;
+	}
+
+	public void setHotelid(String hotelid) {
+		this.hotelid = hotelid;
+	}
+
+	public Booking(String id, String name, String description, String flightid, String hotelid) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.flightid = flightid;
+		this.hotelid=hotelid;
 	}
 
 	protected Booking()

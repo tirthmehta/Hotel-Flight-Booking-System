@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mehta.tirth.Expedia.Flights.FlightService;
+import com.mehta.tirth.Expedia.Hotels.HotelService;
 
 @RestController
 public class BookingController {
@@ -17,6 +18,8 @@ public class BookingController {
 	private BookingService bookingService;
 	@Autowired
 	private FlightService flightService;
+	@Autowired
+	private HotelService hotelService;
 	
 	@RequestMapping("/expedia/bookings")
 	public List<Booking> getAllBookings()
@@ -34,9 +37,18 @@ public class BookingController {
 	public void addBooking(@RequestBody Booking booking)
 	{
 		String flightid=booking.getFlightid();
+		String hotelid=booking.getHotelid();
+		if(flightid!=null) {
 		boolean checkingFlightCapacityandUpdate=this.flightService.reflectChange(flightid,true);
 		if(checkingFlightCapacityandUpdate)
 			this.bookingService.addBooking(booking);
+		}
+		else
+		{
+			boolean checkingHotelCapacityandUpdate=this.hotelService.reflectChange(hotelid,true);
+			if(checkingHotelCapacityandUpdate)
+				this.bookingService.addBooking(booking);
+		}
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT,value="/expedia/bookings/{bookingid}")
